@@ -7,7 +7,6 @@ import io.ktor.util.network.UnresolvedAddressException
 import kotlinx.coroutines.ensureActive
 import kotlin.coroutines.coroutineContext
 
-//
 suspend inline fun <reified T> safeCall(
     execute: () -> HttpResponse
 ): Result<T, NetworkError> {
