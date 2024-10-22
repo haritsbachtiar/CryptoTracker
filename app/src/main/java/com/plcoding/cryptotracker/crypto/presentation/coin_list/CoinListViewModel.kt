@@ -8,7 +8,6 @@ import com.plcoding.cryptotracker.crypto.domain.CoinDataSource
 import com.plcoding.cryptotracker.crypto.presentation.model.toCoinUI
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -19,7 +18,7 @@ class CoinListViewModel(
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(CoinListState())
-    val state = _state.asStateFlow()
+    val state = _state
         .onStart { loadCoins() }
         .stateIn(
             viewModelScope,
